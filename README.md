@@ -6,7 +6,7 @@ SFCの公開シラバスの内容をもとにGemini1.5flashが答えてくれる
 
 https://sfc-syllabus-adviser.streamlit.app/
 
-#Google Colabのリンク（慶應義塾内のみ）
+# Google Colabのリンク（慶應義塾内のみ）
 
 https://colab.research.google.com/drive/1xDC7IYQBrSSSWlDudcgZQGoQNcFPU4A9?usp=sharing
 
