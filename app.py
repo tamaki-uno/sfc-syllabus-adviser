@@ -25,7 +25,8 @@ def init_page():
 
 def main():
     embeddings = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001"
+        # model="models/embedding-001"
+        model="models/embedding-004"
     )
     db = load_db(embeddings)
     init_page()
