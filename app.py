@@ -47,15 +47,15 @@ def main():
 
     以下の背景情報を参照してください。情報がなければ、その内容については言及しないでください。
 
-    # 文脈情報
-    {session_context}
-
     # 背景情報
     {context}
 
     # 質問
     {question}"""
     
+    #     # 文脈情報
+    # {session_context}
+
     PROMPT = PromptTemplate(
         template=prompt_template, input_variables=["context", "question"]
     )
@@ -63,7 +63,7 @@ def main():
         llm=llm,
         chain_type="stuff",
         # retriever=db.as_retriever(search_kwargs={"k": 2}),
-        retriever=db.as_retriever(search_kwargs={"k": 10}), # search_kwargs={"k": 2}: kというパラメータにより、検索結果の上位2つのドキュメントを返すように設定しています。この場合、質問に対して最も関連性の高い2つのドキュメントが選ばれます。
+        retriever=db.as_retriever(search_kwargs={"k": 20}), # search_kwargs={"k": 2}: kというパラメータにより、検索結果の上位2つのドキュメントを返すように設定しています。この場合、質問に対して最も関連性の高い2つのドキュメントが選ばれます。
         return_source_documents=True,
         chain_type_kwargs={"prompt": PROMPT}# システムプロンプトを追加
     )
