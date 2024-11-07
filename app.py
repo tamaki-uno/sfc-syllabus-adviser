@@ -36,6 +36,8 @@ def main():
         max_retries=2,
     )
 
+    session_context = {}
+
     # オリジナルのSystem Instructionを定義する
     prompt_template = """
     あなたは、「SFCシラバスアドバイザー」というチャットボットです。
@@ -44,6 +46,10 @@ def main():
     慶應SFCに全く関係のない質問と思われる質問に関しては、「慶應SFCに関係することについて聞いてください」と答えてください。
 
     以下の背景情報を参照してください。情報がなければ、その内容については言及しないでください。
+
+    # 文脈情報
+    {session_context}
+
     # 背景情報
     {context}
 
@@ -67,6 +73,7 @@ def main():
     if user_input := st.chat_input('質問しよう！'):
         # 以前のチャットログを表示
         for message in st.session_state.messages:
+            session_context[message["role"]] = message["content"]
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
         print(user_input)
