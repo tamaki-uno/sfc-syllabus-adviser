@@ -18,8 +18,8 @@ def load_db(embeddings):
 
 def init_page():
     st.set_page_config(
-        page_title='オリジナルチャットボット',
-        page_icon='🧑‍💻',
+        page_title='SFCシラバスアドバイザー',
+        page_icon='🤖',
     )
 
 
